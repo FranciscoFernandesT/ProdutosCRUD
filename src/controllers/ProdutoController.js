@@ -6,13 +6,15 @@ class ProdutoController {
 
         return res.status(200).json({
             produtos: produtos
-        })
+        });
     }
 
-    async criarProduto() {
-        if (!nome) {
-
-        }
+    async criarProduto(req, res) {
+        const produtos = await new ProdutoModel().criarProdutoNoBanco();
+        
+        return res.status(201).json({
+            mensagem: "Produto criado!"
+        });
     }
 }
 

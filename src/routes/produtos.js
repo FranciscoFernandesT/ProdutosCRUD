@@ -1,11 +1,15 @@
 const express = require("express");
 const { ProdutoController } = require("../controllers/ProdutoController");
-const { meuMiddleware } = require("../middlewares/autenticacao");
 
 const roteador = express.Router();
 
 roteador.get('/', new ProdutoController().buscarTodosOsProdutos)
-roteador.post("/batata", new ProdutoController().criarProduto)
+roteador.post("/", new ProdutoController().criarProduto)
+roteador.post("/", async (req, res), () => {
+    
+});
+
+
 
 module.exports = {
     roteador
